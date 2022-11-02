@@ -17,6 +17,7 @@ const options = {
     useUnifiedTopology: true,
 };
 // mongodb+srv://<username>:<password>@cluster0.6vk0qgz.mongodb.net/?retryWrites=true&w=majority
+
 // You guys need to replace with your own server url and correct <username> and <password>
 const dbUrl = `mongodb://localhost:27017`;
 
@@ -87,7 +88,7 @@ app.get('/posts', async (req, res) => {
 /** POST API: Gets new post info from React and adds it to DB */
 app.post('/addpost', async (req, res) => {
     const inputPost = req.body;
-    console.log(inputPosts);
+    console.log(inputPost);
     const matchingPosts = myMockDB.filter(post => post.id === inputPost.id).length;
     if (matchingPosts) {
         res.status(500);
